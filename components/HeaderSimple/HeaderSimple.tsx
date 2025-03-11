@@ -1,11 +1,12 @@
-"use client";
+'use client';
 
 import { useState } from 'react';
 import { Burger, Container, Group } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { MantineLogo } from '@mantinex/mantine-logo';
-import classes from './HeaderSimple.module.css';
 import { ActionToggle } from '../ActionToggle/ActionToggle';
+import { ReloadButton } from '../ReloadButton/ReloadButton';
+import classes from './HeaderSimple.module.css';
 
 const links = [
   { link: '/about', label: 'Features' },
@@ -19,6 +20,7 @@ export function HeaderSimple() {
     <header className={classes.header}>
       <Container size="md" className={classes.inner}>
         <MantineLogo size={28} />
+
         <ActionToggle />
       </Container>
     </header>
