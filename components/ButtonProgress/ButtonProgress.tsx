@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button, Group, Progress, rgba, useMantineTheme } from '@mantine/core';
 import { useInterval } from '@mantine/hooks';
 import classes from './ButtonProgress.module.css';
@@ -23,6 +23,13 @@ export function ButtonProgress() {
       }),
     20
   );
+
+  useEffect(() => {
+    if (loaded) {
+      console.log('Process finished!');
+      window.location.reload();
+    }
+  } , [loaded]);
 
   return (
     <Button

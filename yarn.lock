@@ -3581,6 +3581,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@zodios/core@npm:^10.9.6":
+  version: 10.9.6
+  resolution: "@zodios/core@npm:10.9.6"
+  peerDependencies:
+    axios: ^0.x || ^1.0.0
+    zod: ^3.x
+  checksum: 10c0/0a792779fa438ccc214cca09beafb29553737b8208b3819dfe3df7ab50fa01345ec60870bdb8e47e758e2b63d1984052ac502e7a5d50af5f5ef620717dfee780
+  languageName: node
+  linkType: hard
+
 "abab@npm:^2.0.6":
   version: 2.0.6
   resolution: "abab@npm:2.0.6"
@@ -8463,6 +8473,7 @@ __metadata:
     "@types/jest": "npm:^29.5.14"
     "@types/node": "npm:^22.10.7"
     "@types/react": "npm:19.0.7"
+    "@zodios/core": "npm:^10.9.6"
     babel-loader: "npm:^9.2.1"
     eslint: "npm:^9.18.0"
     eslint-config-mantine: "npm:^4.0.3"
@@ -8484,6 +8495,7 @@ __metadata:
     ts-jest: "npm:^29.2.5"
     typescript: "npm:5.7.3"
     typescript-eslint: "npm:^8.20.0"
+    zod: "npm:^3.24.2"
   languageName: unknown
   linkType: soft
 
@@ -12369,5 +12381,12 @@ __metadata:
   version: 1.2.0
   resolution: "yocto-queue@npm:1.2.0"
   checksum: 10c0/9fb3adeba76b69cc7c916831c092bb69ac1aa685c692ae6eb819a9599cbe0c4ecfd5269c145691a15b86d0a25b27d854d6116bbc0851a3373c0a86edb96f1602
+  languageName: node
+  linkType: hard
+
+"zod@npm:^3.24.2":
+  version: 3.24.2
+  resolution: "zod@npm:3.24.2"
+  checksum: 10c0/c638c7220150847f13ad90635b3e7d0321b36cce36f3fc6050ed960689594c949c326dfe2c6fa87c14b126ee5d370ccdebd6efb304f41ef5557a4aaca2824565
   languageName: node
   linkType: hard
