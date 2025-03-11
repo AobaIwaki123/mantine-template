@@ -6,16 +6,12 @@ import { GridAsymmetrical } from '../components/GridAsymmetrical/GridAsymmetrica
 import { HeaderSimple } from '../components/HeaderSimple/HeaderSimple';
 import { Welcome } from '../components/Welcome/Welcome';
 
-
 export default function HomePage() {
-
   return (
     <>
       <HeaderSimple />
       <Welcome />
-      <Group justify="center" mt="xl">
-        <ButtonProgress />
-      </Group>
+      <ButtonProgress />
       <GridAsymmetrical />
       <FooterSocial />
     </>
