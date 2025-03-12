@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { IconPlayerPlay } from '@tabler/icons-react';
 import { Button } from '@mantine/core';
+import classes from './PlayButton.module.css';
 
 export function PlayButton() {
   const [isPressed, setIsPressed] = useState(false);
@@ -9,7 +10,6 @@ export function PlayButton() {
     <Button
       variant="white"
       color="dark"
-      opacity={0.75}
       radius="50%"
       size="lg"
       style={{
@@ -24,6 +24,7 @@ export function PlayButton() {
         minWidth: 0,
         padding: 0,
       }}
+      className={classes.button}
       onMouseDown={() => setIsPressed(true)}
       onMouseUp={() => setIsPressed(false)}
       onMouseLeave={() => setIsPressed(false)} // ホバー外れた時に元に戻す

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Card, Center, Image, Loader, Overlay } from '@mantine/core';
 import { PlayButton } from '../PlayButton/PlayButton';
-
+import classes from './FeaturesCard.module.css';
 
 export function FeaturesCard() {
   const [loaded, setLoaded] = useState(false);
@@ -17,7 +17,7 @@ export function FeaturesCard() {
   }, []);
   
   return (
-    <Card shadow="sm" padding="lg" radius="md" withBorder>
+    <Card shadow="sm" padding="lg" radius="md" withBorder className={classes.card}>
       <Card.Section component="a" style={{ position: 'relative' }}>
         <Image src="https://img.youtube.com/vi/9_OEe_QXdbw/hqdefault.jpg" alt="Thumbnail" />
         {/* オーバーレイ */}

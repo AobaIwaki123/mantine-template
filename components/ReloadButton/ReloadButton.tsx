@@ -3,7 +3,7 @@
 import React from 'react';
 import { IconRefresh } from '@tabler/icons-react';
 import { Button } from '@mantine/core';
-
+import classes from './ReloadButton.module.css';
 
 export const ReloadButton = () => {
   const handleReload = () => {
@@ -23,6 +23,7 @@ export const ReloadButton = () => {
         right: '20px',
         zIndex: 1000, // 他の要素より前面に表示
       }}
+      className={classes.button}
     >
       <IconRefresh size={24} stroke={1.5} />
     </Button>

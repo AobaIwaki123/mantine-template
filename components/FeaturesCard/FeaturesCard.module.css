@@ -1,5 +1,9 @@
 .card {
   background-color: var(--mantine-color-body);
+
+  &:hover {
+    transform: scale(1.01);
+  }
 }
 
 .imageSection {
