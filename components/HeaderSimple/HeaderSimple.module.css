@@ -1,8 +1,14 @@
 .header {
   height: 56px;
-  margin-bottom: 30px;
+  margin-bottom: 120px;
   background-color: var(--mantine-color-body);
   border-bottom: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+}
+
+@media (max-width: 992px) {
+  .header {
+    margin-bottom: 30px;
+  }
 }
 
 .inner {
