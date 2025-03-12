@@ -1,9 +1,10 @@
 "use client";
 
 import React from 'react';
-import { IconRefresh } from '@tabler/icons-react';
+import { IconRefresh, IconReload } from '@tabler/icons-react';
 import { Button } from '@mantine/core';
 import classes from './ReloadButton.module.css';
+
 
 export const ReloadButton = () => {
   const handleReload = () => {

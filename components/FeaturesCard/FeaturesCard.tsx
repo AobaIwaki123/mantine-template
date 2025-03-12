@@ -13,7 +13,6 @@ export function FeaturesCard() {
       setLoaded(true);
     }, 1000);
     return () => clearTimeout(timer);
-    // setLoaded(true);
   }, []);
   
   return (
