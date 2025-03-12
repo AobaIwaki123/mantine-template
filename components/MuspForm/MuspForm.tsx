@@ -47,9 +47,10 @@ export function MuspForm() {
   // マウント時に localStorage の user_id をセット
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const storedUserId = localStorage.getItem('user_id');
+      const storedUserId = localStorage.getItem('userID');
       if (storedUserId) {
         setValue('user_id', storedUserId);
+        console.log('Stored user_id:', storedUserId);
       }
     }
   }, [setValue]);
