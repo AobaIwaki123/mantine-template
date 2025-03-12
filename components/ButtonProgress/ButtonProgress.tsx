@@ -5,6 +5,7 @@ import { Button, Group, Progress, rgba, useMantineTheme } from '@mantine/core';
 import { useInterval } from '@mantine/hooks';
 import classes from './ButtonProgress.module.css';
 
+
 export function ButtonProgress() {
   const theme = useMantineTheme();
   const [progress, setProgress] = useState(0);
@@ -36,7 +37,8 @@ export function ButtonProgress() {
       <Button
         className={classes.button}
         onClick={() => (loaded ? setLoaded(false) : !interval.active && interval.start())}
-        color={loaded ? 'teal' : theme.primaryColor}
+        variant="gradient"
+        gradient={{ from: 'pink', to: 'violet', deg: 90 }}
       >
         <div className={classes.label}>
           {progress !== 0 ? 'Processing...' : loaded ? 'Process Finished!' : 'Add Music!'}

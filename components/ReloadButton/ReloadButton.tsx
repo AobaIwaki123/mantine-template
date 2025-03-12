@@ -4,6 +4,7 @@ import React from 'react';
 import { IconRefresh } from '@tabler/icons-react';
 import { Button } from '@mantine/core';
 
+
 export const ReloadButton = () => {
   const handleReload = () => {
     window.location.reload();
@@ -11,8 +12,8 @@ export const ReloadButton = () => {
 
   return (
     <Button
-      variant="filled"
-      color="blue"
+      variant="gradient"
+      gradient={{ from: 'violet', to: 'cyan', deg: 90 }}
       p="xs"
       radius="xl"
       onClick={handleReload}

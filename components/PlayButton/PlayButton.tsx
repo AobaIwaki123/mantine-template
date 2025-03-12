@@ -1,26 +1,34 @@
+import { useState } from 'react';
 import { IconPlayerPlay } from '@tabler/icons-react';
-import { Badge, Button, Card, Group, Image, Overlay, Text } from '@mantine/core';
-
+import { Button } from '@mantine/core';
 
 export function PlayButton() {
+  const [isPressed, setIsPressed] = useState(false);
+
   return (
     <Button
       variant="white"
       color="dark"
+      opacity={0.75}
       radius="50%"
       size="lg"
       style={{
         position: 'absolute',
         top: '50%',
         left: '50%',
-        transform: 'translate(-50%, -50%)',
+        transform: `translate(-50%, -50%) ${isPressed ? 'translateY(3px)' : ''}`,
+        transition: 'transform 0.1s ease-in-out',
         zIndex: 2,
-        width: 50, // サイズ調整
-        height: 50, // 幅と高さを同じにすることで円形になる
-        minWidth: 0, // Mantine のデフォルトの最小幅を無効化
-        padding: 0, // 余白を削減
+        width: 50,
+        height: 50,
+        minWidth: 0,
+        padding: 0,
       }}
+      onMouseDown={() => setIsPressed(true)}
+      onMouseUp={() => setIsPressed(false)}
+      onMouseLeave={() => setIsPressed(false)} // ホバー外れた時に元に戻す
     >
       <IconPlayerPlay size={24} />
     </Button>
-  );}
+  );
+}

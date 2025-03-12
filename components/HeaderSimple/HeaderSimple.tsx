@@ -20,7 +20,6 @@ export function HeaderSimple() {
     <header className={classes.header}>
       <Container size="md" className={classes.inner}>
         <MantineLogo size={28} />
-
         <ActionToggle />
       </Container>
     </header>
