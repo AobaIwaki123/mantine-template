@@ -4,6 +4,7 @@ import { GridAsymmetrical } from '../components/GridAsymmetrical/GridAsymmetrica
 import { HeaderSimple } from '../components/HeaderSimple/HeaderSimple';
 import { ReloadButton } from '../components/ReloadButton/ReloadButton';
 import { Welcome } from '../components/Welcome/Welcome';
+import { InputURL } from '../components/InputURL/InputURL';
 
 export default function HomePage() {
   return (
@@ -11,6 +12,7 @@ export default function HomePage() {
       <ReloadButton />
       <HeaderSimple />
       <Welcome />
+      <InputURL />
       <ButtonProgress />
       <GridAsymmetrical />
       <FooterSocial />
