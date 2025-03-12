@@ -1,8 +1,8 @@
 'use client';
 
 import { Container, Grid, Skeleton } from '@mantine/core';
-import type { GetInfoResponseType } from '../../client/client';
-import { FeaturesCard } from '../FeaturesCard/FeaturesCard';
+import { ApplicationCard } from '../ApplicationCard/ApplicationCard';
+
 
 const child = <Skeleton height={140} radius="md" animate={false} />;
 
@@ -11,28 +11,28 @@ export function GridAsymmetrical() {
     <Container my="md">
       <Grid>
         <Grid.Col span={{ base: 6, xs: 4 }}>
-          <FeaturesCard />
+          <ApplicationCard />
         </Grid.Col>
         <Grid.Col span={{ base: 6, xs: 4 }}>
-          <FeaturesCard />
+          <ApplicationCard />
         </Grid.Col>
         <Grid.Col span={{ base: 6, xs: 4 }}>
-          <FeaturesCard />
+          <ApplicationCard />
         </Grid.Col>
         <Grid.Col span={{ base: 6, xs: 4 }}>
-          <FeaturesCard />
+          <ApplicationCard />
         </Grid.Col>
         <Grid.Col span={{ base: 6, xs: 4 }}>
-          <FeaturesCard />
+          <ApplicationCard />
         </Grid.Col>
         <Grid.Col span={{ base: 6, xs: 4 }}>
-          <FeaturesCard />
+          <ApplicationCard />
         </Grid.Col>
         <Grid.Col span={{ base: 6, xs: 4 }}>
-          <FeaturesCard />
+          <ApplicationCard />
         </Grid.Col>
         <Grid.Col span={{ base: 6, xs: 4 }}>
-          <FeaturesCard />
+          <ApplicationCard />
         </Grid.Col>
       </Grid>
     </Container>
