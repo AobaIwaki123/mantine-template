@@ -9,21 +9,23 @@ import { PostJobsRequest } from '../../client/client';
 import type { PostJobsRequestType } from '../../client/client';
 import classes from './MuspForm.module.css';
 
-
-// ★ Zod のスキーマ(PostJobsRequest)は質問文で提示された内容を使用
+// ★ Zod のスキーマ(PostJobsRequest)はご質問文に提示された内容を利用
 
 export function MuspForm() {
   const theme = useMantineTheme();
   const [progress, setProgress] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
+  // 追加: Inputがフォーカス中かどうかを管理
+  const [isFocused, setIsFocused] = useState(false);
+
+  // プログレス管理
   const interval = useInterval(
     () =>
       setProgress((current) => {
         if (current < 100) {
           return current + 1;
         }
-
         interval.stop();
         setLoaded(true);
         return 0;
@@ -39,12 +41,12 @@ export function MuspForm() {
   } = useForm<PostJobsRequestType>({
     resolver: zodResolver(PostJobsRequest),
     defaultValues: {
-      user_id: '', // 後から localStorage の値をセットする
+      user_id: '',
       youtube_url: '',
     },
   });
 
-  // マウント時に localStorage の user_id をセット
+  // 初回マウント時に localStorage から user_id をセット
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const storedUserId = localStorage.getItem('userID');
@@ -55,7 +57,7 @@ export function MuspForm() {
     }
   }, [setValue]);
 
-  // 進捗バーが 100% に到達したらリロード
+  // プログレスが 100% に到達したらページをリロード (サンプル実装)
   useEffect(() => {
     if (loaded) {
       console.log('Process finished!');
@@ -68,7 +70,7 @@ export function MuspForm() {
     // ここでバックエンドへのリクエストなどを行う
     console.log('送信データ:', data);
 
-    // ボタンクリックの処理（プログレス開始）
+    // プログレス開始
     if (!interval.active) {
       interval.start();
     }
@@ -76,19 +78,21 @@ export function MuspForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {/* user_id を画面に表示しない場合は hidden input にする */}
+      {/* user_id は画面表示しない例 */}
       <input type="hidden" {...register('user_id')} />
 
       <TextInput
-        label="YouTube URL"
         placeholder="https://www.youtube.com"
         radius="xl"
-        // Mantine のエラー表示には {errors.youtube_url?.message} を利用
-        error={errors.youtube_url?.message}
+        error={errors.youtube_url?.message && !isFocused}
         {...register('youtube_url')}
+        // フォーカス時/ブラー時に状態を切り替え
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
         styles={{
           input: {
-            borderColor: errors.youtube_url ? 'red' : '#ccc',
+            // エラーメッセージがある かつ フォーカス中でない場合のみ borderColor: red
+            borderColor: errors.youtube_url && !isFocused ? 'red' : '#ccc',
           },
           label: {
             fontWeight: 500,
@@ -101,9 +105,11 @@ export function MuspForm() {
       <Group justify="center" mt="xl" mb={50}>
         <Button
           className={classes.button}
-          type="submit" // フォーム送信用
+          type="submit"
           variant="gradient"
           gradient={{ from: 'pink', to: 'violet', deg: 90 }}
+          // ボタンクリック → progress > 0 → 処理完了までボタンを無効化
+          disabled={progress > 0 && !loaded}
         >
           <div className={classes.label}>
             {progress !== 0 ? 'Processing...' : loaded ? 'Process Finished!' : 'Add Music!'}
